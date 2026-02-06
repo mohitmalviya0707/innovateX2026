@@ -1,0 +1,1056 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateX 2026 - SBITM Betul</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circuit {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent, #4a9eff, transparent);
+            animation: flow 4s linear infinite;
+        }
+
+        @keyframes flow {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 22, 40, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(74, 158, 255, 0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .college-logo {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+        }
+
+        .college-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-title h1 {
+            font-size: 2rem;
+            background: linear-gradient(90deg, #4a9eff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .event-title p {
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            background: rgba(74, 158, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #4a9eff;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(90deg, #4a9eff, #ff6b35);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.4);
+            transition: all 0.3s;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 158, 255, 0.6);
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a9eff, #ff6b35);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Achievements Carousel */
+        .achievements-section {
+            background: rgba(26, 41, 66, 0.6);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            min-width: 350px;
+            height: 250px;
+            margin: 0 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(74, 158, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.05);
+            border-color: #4a9eff;
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.5);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(26, 41, 66, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            transition: all 0.3s;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 158, 255, 0.3);
+            border-color: #4a9eff;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #4a9eff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p, .card ul {
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(74, 158, 255, 0.1);
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #4a9eff, #ff6b35);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(26, 41, 66, 0.6);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 2;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #4a9eff;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.8);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        /* Prizes */
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .prize-card {
+            background: rgba(26, 41, 66, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .prize-card:hover::before {
+            left: 100%;
+        }
+
+        .prize-gold {
+            border-color: #ffd700;
+        }
+
+        .prize-silver {
+            border-color: #c0c0c0;
+        }
+
+        .prize-bronze {
+            border-color: #cd7f32;
+        }
+
+        .prize-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .prize-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Map Section */
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(74, 158, 255, 0.2);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Registration Section */
+        .registration-info {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.2), rgba(255, 107, 53, 0.2));
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .registration-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .reg-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .reg-detail {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .reg-detail .label {
+            color: #4a9eff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reg-detail .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Community Section */
+        .community-highlight {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(74, 158, 255, 0.2));
+            border: 2px solid #ff6b35;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .community-highlight h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b35;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            background: #20BA5A;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Admin Section - Horizontal Layout */
+        .admin-section {
+            background: rgba(26, 41, 66, 0.6);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        .admin-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(74, 158, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
+        }
+
+        .admin-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #4a9eff;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+        }
+
+        .admin-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .admin-info {
+            flex: 1;
+        }
+
+        .admin-info h4 {
+            color: #4a9eff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-info p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .linkedin-btn {
+            display: inline-block;
+            padding: 0.6rem 1.3rem;
+            background: #0077B5;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-left: auto;
+        }
+
+        .linkedin-btn:hover {
+            background: #005885;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 22, 40, 0.9);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .event-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                order: 1;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .reg-details {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0.3rem;
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .admin-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .admin-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .carousel-item {
+                min-width: 280px;
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="circuit" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="circuit" style="left: 25%; animation-delay: 1s;"></div>
+        <div class="circuit" style="left: 40%; animation-delay: 2s;"></div>
+        <div class="circuit" style="left: 55%; animation-delay: 0.5s;"></div>
+        <div class="circuit" style="left: 70%; animation-delay: 1.5s;"></div>
+        <div class="circuit" style="left: 85%; animation-delay: 2.5s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="college-logo">
+                    <img src="https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/logo.jpeg" alt="SBITM Logo">
+                </div>
+                <div class="event-title">
+                    <h1>INNOVATEX 2026</h1>
+                    <p>SBITM Betul - E-Cell & IT Community</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#community">Community</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#prizes">Prizes</a>
+                <a href="#register">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>🚀 INNOVATEX 2026</h2>
+        <p class="tagline">Code. Innovate. Transform.</p>
+        <p style="font-size: 1.2rem; margin: 2rem 0; color: #cbd5e0;">
+            Join the ultimate hackathon at SBITM Betul!<br>
+            Showcase your skills, win amazing prizes, and network with the best minds.
+        </p>
+        <a href="#register" class="cta-button">Register Now →</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About InnovateX</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>What is InnovateX?</h3>
+                <p>InnovateX is a competitive hackathon where teams collaborate to solve real-world problems, build innovative solutions, and showcase their technical prowess. It's more than just coding – it's a platform to learn, network, and win!</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Who Can Participate?</h3>
+                <p><strong style="color: #ff6b35;">ONLY SBITM STUDENTS</strong> can participate. Form teams of 3-4 members and get ready to compete. One participant can only be part of ONE team.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Why Participate?</h3>
+                <ul>
+                    <li>💰 Win cash prizes worth ₹3,700+</li>
+                    <li>🏆 Earn certificates of participation</li>
+                    <li>🎤 Learn from industry experts</li>
+                    <li>🤝 Networking opportunities</li>
+                    <li>✈️ Chance to meet ISRO scientist</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Community Section - MANDATORY -->
+    <section id="community">
+        <h2 class="section-title">Join Our Community 🌟</h2>
+        <div class="community-highlight">
+            <h3>⚠️ MANDATORY - Join Our WhatsApp Community</h3>
+            <p style="font-size: 1.2rem; color: #cbd5e0; margin: 1.5rem 0;">
+                Stay updated with InnovateX details, internship opportunities, job postings, and more exciting events!<br>
+                <strong>Joining this community is MANDATORY for all participants.</strong>
+            </p>
+            <a href="https://chat.whatsapp.com/ElD5RRs2YNjAp6paXpCNQo" class="whatsapp-button" target="_blank">
+                📱 Join WhatsApp Community
+            </a>
+            <p style="margin-top: 1.5rem; color: #a0aec0; font-size: 0.95rem;">
+                Get real-time updates, hackathon details, networking opportunities, and career resources!
+            </p>
+        </div>
+
+        <div class="admin-section">
+            <h3 style="text-align: center; color: #4a9eff; font-size: 2rem; margin-bottom: 2rem;">Community Admins</h3>
+            
+            <!-- Admin 1: Mohit Malviya -->
+            <div class="admin-card">
+                <div class="admin-image">
+                    <img src="https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/mohit%20.jpg" alt="Mohit Malviya">
+                </div>
+                <div class="admin-info">
+                    <h4>Mohit Malviya</h4>
+                    <p>Community Admin</p>
+                </div>
+                <a href="https://www.linkedin.com/in/mohitmalviya-ds" target="_blank" class="linkedin-btn">
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Admin 2: Vishal Sable -->
+            <div class="admin-card">
+                <div class="admin-image">
+                    <img src="https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/vishal%20image%20.png" alt="Vishal Sable">
+                </div>
+                <div class="admin-info">
+                    <h4>Vishal Sable</h4>
+                    <p>Community Admin</p>
+                </div>
+                <a href="https://linkedin.com/in/vishal-sable-14a008339" target="_blank" class="linkedin-btn">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules">
+        <h2 class="section-title">Rules & Guidelines</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Team Composition</h3>
+                <ul>
+                    <li><strong>Eligibility:</strong> Only SBITM students allowed</li>
+                    <li><strong>Team Size:</strong> 3-4 members (Minimum 3, Maximum 4)</li>
+                    <li><strong>Registration Fee:</strong> ₹150 per team</li>
+                    <li><strong>Important:</strong> One participant can join only ONE team</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Submission Guidelines</h3>
+                <ul>
+                    <li>All code must be original work</li>
+                    <li>Projects must be submitted before the deadline</li>
+                    <li>Use of open-source libraries is allowed</li>
+                    <li>Plagiarism will lead to disqualification</li>
+                    <li>Submit project documentation & presentation</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏅</div>
+                <h3>Judging Criteria</h3>
+                <ul>
+                    <li>Innovation & Creativity (30%)</li>
+                    <li>Technical Implementation (30%)</li>
+                    <li>Problem Solving (20%)</li>
+                    <li>Presentation & Demo (15%)</li>
+                    <li>Social Impact (5%)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <h2 class="section-title">Event Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #4a9eff;">📝 Registration Opens</h3>
+                    <p><strong>Date:</strong> February 10, 2026</p>
+                    <p>Registration portal goes live. Start forming your teams and join our WhatsApp community!</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #4a9eff;">⏰ Registration Closes</h3>
+                    <p><strong>Date:</strong> February 25, 2026</p>
+                    <p>Last date to register. Pay ₹150 and secure your spot!</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #4a9eff;">📢 Theme Announcement</h3>
+                    <p><strong>Date:</strong> February 28, 2026</p>
+                    <p>Hackathon theme and problem statements will be revealed to all registered teams.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #4a9eff;">🚀 InnovateX Day - Main Event</h3>
+                    <p><strong>Date:</strong> March 5, 2026</p>
+                    <p><strong>Venue:</strong> SBITM Campus<br>
+                    Opening ceremony, coding session, mentorship, presentations, and awards!</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes">
+        <h2 class="section-title">Prizes & Rewards</h2>
+        <div class="prizes-grid">
+            <div class="prize-card prize-gold">
+                <div class="prize-icon">🥇</div>
+                <h3>First Prize</h3>
+                <div class="prize-amount">₹2,100</div>
+                <p>+ Certificate + New Delhi Trip</p>
+            </div>
+            <div class="prize-card prize-silver">
+                <div class="prize-icon">🥈</div>
+                <h3>Second Prize</h3>
+                <div class="prize-amount">₹1,100</div>
+                <p>+ Certificate</p>
+            </div>
+            <div class="prize-card prize-bronze">
+                <div class="prize-icon">🥉</div>
+                <h3>Third Prize</h3>
+                <div class="prize-amount">₹500</div>
+                <p>+ Certificate</p>
+            </div>
+        </div>
+        <div class="card" style="margin-top: 2rem; text-align: center;">
+            <h3>🎁 All Participants Will Receive</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 1.5rem; gap: 2rem;">
+                <div style="flex: 1; min-width: 200px; padding: 1rem;">
+                    <div style="font-size: 2.5rem;">📜</div>
+                    <p style="margin-top: 0.5rem;"><strong>Participation Certificate</strong></p>
+                </div>
+                <div style="flex: 1; min-width: 200px; padding: 1rem;">
+                    <div style="font-size: 2.5rem;">🤝</div>
+                    <p style="margin-top: 0.5rem;"><strong>Networking Opportunities</strong></p>
+                </div>
+                <div style="flex: 1; min-width: 200px; padding: 1rem;">
+                    <div style="font-size: 2.5rem;">🎤</div>
+                    <p style="margin-top: 0.5rem;"><strong>Guest Speaker Session</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register">
+        <h2 class="section-title">Registration Details</h2>
+        <div class="registration-info">
+            <h3>Ready to Compete? Register Now!</h3>
+            <div class="reg-details">
+                <div class="reg-detail">
+                    <div class="label">Registration Fee</div>
+                    <div class="value">₹150/team</div>
+                </div>
+                <div class="reg-detail">
+                    <div class="label">Team Size</div>
+                    <div class="value">3-4 Members</div>
+                </div>
+                <div class="reg-detail">
+                    <div class="label">Prize Pool</div>
+                    <div class="value">₹3,700+</div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="https://forms.google.com/your-registration-link" class="cta-button" target="_blank">
+                    Complete Registration →
+                </a>
+            </div>
+            <p style="margin-top: 2rem; color: #cbd5e0;">
+                After clicking the button, fill out the Google Form with your team details.<br>
+                Payment instructions will be provided after form submission.
+            </p>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h3 style="color: #4a9eff;">📝 What You Need to Submit</h3>
+            <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                <li><strong>Team Name</strong> - Choose a creative team name</li>
+                <li><strong>Team Leader Details</strong> - Name, Email, Phone, Year & Branch</li>
+                <li><strong>Team Member Details</strong> - Names, year & branch of all 3-4 members</li>
+                <li><strong>Payment Proof</strong> - Screenshot of ₹150 payment</li>
+                <li><strong>Technical Skills</strong> - Brief description of team's expertise</li>
+                <li><strong>WhatsApp Community</strong> - Confirmation of joining the mandatory community group</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <h2 class="section-title">Event Venue</h2>
+        <div class="card">
+            <h3 style="color: #4a9eff;">📍 Shri Balaji Institute of Technology & Management (SBITM)</h3>
+            <p style="margin: 1rem 0; font-size: 1.05rem; line-height: 1.6;">
+                Khasra No. 238, 8th Mile Stone on the Betul-Bhopal Highway (NH-69),<br>
+                Near Gram Gohchi, Post-Sakadehi, Betul, Madhya Pradesh - 460005
+            </p>
+            <div style="background: rgba(74, 158, 255, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
+                <h4 style="color: #ff6b35; margin-bottom: 1rem;">Event Locations within Campus:</h4>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>📍 Lab Sessions:</strong> Advanced Computer Lab<br>
+                    <strong>📍 Presentations:</strong> Convocation Hall<br>
+                    <strong>📍 Main Event Date:</strong> March 5, 2026
+                </p>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.5234!2d77.9089!3d21.8934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6b0e2e2c08a89%3A0x3f5e5f8e5f8e5f8e!2sSBITM%20Betul!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Contact Section - Compact -->
+    <section>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <div class="card-icon">📧</div>
+            <h3>Email Us</h3>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">ecell@sbitm.edu.in</p>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(74, 158, 255, 0.2);">
+                <h4 style="color: #4a9eff; margin-bottom: 1rem;">Follow SBITM</h4>
+                <a href="https://www.instagram.com/betulsbitm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                   target="_blank"
+                   style="display: inline-block; padding: 0.8rem 1.8rem; background: #E4405F; color: #fff; 
+                   text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.3s;">
+                    📸 Instagram - @betulsbitm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SBITM Betul - E-Cell & IT Community</p>
+        <p style="margin-top: 0.5rem; color: #a0aec0;">InnovateX 2026 | Code. Innovate. Transform.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            Organized by E-Cell & IT Community, Shri Balaji Institute of Technology & Management
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .timeline-item, .prize-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
